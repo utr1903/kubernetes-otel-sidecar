@@ -4,17 +4,19 @@
 
 replicaCount: 1
 
-image:
-  # For AMD -> test-go-server-amd
-  # For ARM -> test-go-server-arm
-  repository: uturkarslan/test-go-server-amd
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.0.0"
+server:
+  name: server
+  image:
+    # For AMD -> test-go-server-amd
+    # For ARM -> test-go-server-arm
+    repository: uturkarslan/test-go-server-amd
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: "1.0.0"
 
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+  imagePullSecrets: []
+  nameOverride: ""
+  fullnameOverride: ""
 
 podAnnotations: {}
 

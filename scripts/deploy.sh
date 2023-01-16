@@ -43,8 +43,8 @@ if [[ $arm == "true" ]]; then
     --debug \
     --create-namespace \
     --namespace "test" \
-    --set image.repository="uturkarslan/test-go-server-arm" \
-    --set image.tag="1.0.0" \
+    --set server.image.repository="uturkarslan/test-go-server-arm" \
+    --set server.image.tag="1.0.0" \
     "../charts/server"
 
 # AMD deployment
@@ -55,8 +55,8 @@ else
     --debug \
     --create-namespace \
     --namespace "test" \
-    --set image.repository="uturkarslan/test-go-server-amd" \
-    --set image.tag="1.0.0" \
+    --set server.image.repository="uturkarslan/test-go-server-amd" \
+    --set server.image.tag="1.0.0" \
     "../charts/server"
 fi
 #########
