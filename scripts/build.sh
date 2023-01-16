@@ -26,7 +26,7 @@ fi
 docker build \
   --platform $platform \
   --tag "${DOCKERHUB_NAME}/${imageName}:${imageTag}" \
-  "../."
+  "../apps/server/."
 
 # Push image to Docker Hub
 docker push "${DOCKERHUB_NAME}/${imageName}:${imageTag}"
