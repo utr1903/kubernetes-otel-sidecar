@@ -1,0 +1,1 @@
+# kubernetes-otel-sidecar
