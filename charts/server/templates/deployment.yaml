@@ -16,9 +16,14 @@ spec:
     spec:
       containers:
         - name: server
-          image: uturkarslan/test-go-server-arm:latest
+          image: uturkarslan/test-go-server-arm:1.0.0
           imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
+          env:
+            - name: OTEL_SERVICE_NAME
+              value: "server"
+            - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+              value: "http://otelcollector.test.svc.cluster.local:4317"

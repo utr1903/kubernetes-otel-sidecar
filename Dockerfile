@@ -5,10 +5,8 @@ FROM golang:1.18.3-buster AS build
 
 WORKDIR /app
 
-COPY go.mod ./
+COPY * ./
 RUN go mod download
-
-COPY *.go ./
 
 RUN go build -o ./out .
 
