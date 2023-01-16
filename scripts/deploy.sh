@@ -13,6 +13,28 @@ while (( "$#" )); do
   esac
 done
 
+######################
+### Otel Collector ###
+######################
+helm upgrade "otelcollector" \
+  --install \
+  --wait \
+  --debug \
+  --create-namespace \
+  --namespace "test" \
+  --set newRelicLicenseKey=$NEWRELIC_LICENSE_KEY \
+  --set name="otelcollector" \
+  --set grpcPort=4317 \
+  --set httpPort=4318 \
+  --set fluentPort=8006 \
+  --set newRelicOtlpGrpcEndpoint="https://otlp.eu01.nr-data.net:4317" \
+  "../charts/otelcollector"
+#########
+
+##############
+### Server ###
+##############
+
 # ARM deployment
 if [[ $arm == "true" ]]; then
   helm upgrade "server" \
@@ -37,3 +59,4 @@ else
     --set image.tag="1.0.0" \
     "../charts/server"
 fi
+#########
